@@ -1,25 +1,27 @@
 import { Button } from "@/components/ui/button";
+import { useQuery } from "@tanstack/react-query";
 import { createFileRoute } from "@tanstack/react-router";
-import { useEffect } from "react";
+const testFetch = async () => {
+  try {
+    const res = await fetch(`/api/notes`);
+    const test = await res.json();
+    console.log(test);
+  } catch (error) {
+    console.log(error);
+  }
+};
 
 export const Route = createFileRoute("/")({
   component: App,
 });
 
 function App() {
-  useEffect(() => {
-    const testFetch = async () => {
-      try {
-        const res = await fetch(`/api/notes`);
-        const test = await res.json();
-        console.log(test);
-      } catch (error) {
-        console.log(error);
-      }
-    };
+  const { data } = useQuery({
+    queryKey: ["notes"],
+    queryFn: testFetch,
+  });
 
-    testFetch();
-  }, []);
+  console.log(data);
 
   return (
     <div className="w-full min-h-dvh flex justify-center items-center">
