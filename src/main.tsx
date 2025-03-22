@@ -3,10 +3,11 @@ import { StrictMode } from "react";
 import ReactDOM from "react-dom/client";
 
 // Import the generated route tree
-import { routeTree } from "./routeTree.gen";
+import { worker } from "@/mocks/browser.ts";
 
 import "./index.css";
 import reportWebVitals from "./reportWebVitals.ts";
+import { routeTree } from "./routeTree.gen";
 
 // Create a new router instance
 const router = createRouter({
@@ -23,6 +24,10 @@ declare module "@tanstack/react-router" {
   interface Register {
     router: typeof router;
   }
+}
+
+if (import.meta.env.DEV) {
+  worker.start();
 }
 
 // Render the app
