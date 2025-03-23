@@ -16,8 +16,7 @@ interface NoteCardProps {
 
 export function NoteCard({ note }: NoteCardProps) {
   return (
-    <Link to="/">
-      {/* <Link to={`/notes/${note.id}`}> */}
+    <Link to={`/notes/$id`} params={{ id: note.id }}>
       <Card className="h-full transition-all hover:shadow-md">
         <CardHeader>
           <CardTitle>{note.title}</CardTitle>
