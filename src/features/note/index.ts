@@ -1,3 +1,3 @@
-export * from "./components/NoteCard";
+export * from "./components";
 export * from "./hooks";
 export * from "./schema";

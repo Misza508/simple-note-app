@@ -17,7 +17,7 @@ export function NoteDetails({ note }: { note: Note }) {
       <CardHeader>
         <div className="flex flex-row justify-between items-center">
           <CardTitle>{note.title}</CardTitle>
-          <Link to="/">
+          <Link to="/notes/edit/$id" params={{ id: note.id }}>
             <Button>
               Edit
               <Edit2 />
@@ -36,7 +36,7 @@ export function NoteDetails({ note }: { note: Note }) {
       <CardFooter>
         <div className="flex items-center text-sm text-muted-foreground gap-2">
           <span>Create at: </span>
-          {note.createdAt}
+          {note.createdAt.toString()}
           <Calendar className="mr-1 h-4 w-4" />
         </div>
       </CardFooter>

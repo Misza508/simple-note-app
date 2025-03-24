@@ -1,12 +1,11 @@
 import { useQuery } from "@tanstack/react-query";
 import { fetchSingleNotes } from "../api/fetchSingleNote";
+import { notesQueryKeys } from "../notesQueryKeys";
 import type { Note } from "../schema";
-
-const getQueryKey = (id: string) => ["notes", id] as const;
 
 export const useSingleNotesQuery = (id: string) => {
   const query = useQuery<Note>({
-    queryKey: getQueryKey(id),
+    queryKey: notesQueryKeys.SINGLE_NOTE(id),
     queryFn: () => fetchSingleNotes({ id }),
   });
 

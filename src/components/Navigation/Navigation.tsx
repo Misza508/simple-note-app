@@ -16,7 +16,10 @@ export function Navigation() {
             </Link>
           </div>
           <div className="flex items-center gap-4">
-            <Link to="/" className="flex items-center gap-1 hover:underline">
+            <Link
+              to="/notes/add-new"
+              className="flex items-center gap-1 hover:underline"
+            >
               <NotebookPen className="h-4 w-4" />
               <span>Add note</span>
             </Link>
