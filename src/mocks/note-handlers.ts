@@ -55,7 +55,7 @@ export const createNoteHandler = () => {
       try {
         const data = noteSchema.parse({
           ...note,
-          createdAt: new Date(note.createdAt).toString(),
+          ...body,
         });
 
         _notes[index] = data;
